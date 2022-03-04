@@ -1,0 +1,25 @@
+---
+- hosts: webservers
+  become: true
+ 
+  tasks:
+  - name: Update the apt cache
+    apt:
+      update_cache: yes
+ 
+  - name: Remove OpenJDK java
+    apt:
+      name:  "{{ item }}"
+      state: present
+    with_items:
+      - mongodb
+      - zip
+      - unzip
+      - vsftpd
+  - name: Check mongodb version
+ 
+    command: mongo -version
+    register: mongodb_version
+ 
+  - debug:
+      msg: “{{ mongodb_version.stdout }}”

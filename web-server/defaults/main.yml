@@ -1,0 +1,6 @@
+---
+# defaults file for web-server
+apachePackageName: apache2
+webContent: indextest.html 
+wwwPath: /var/www/html/indextest.html
+

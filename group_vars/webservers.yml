@@ -1,0 +1,2 @@
+#This variable will applied to group webservers
+apacheport: 9090
